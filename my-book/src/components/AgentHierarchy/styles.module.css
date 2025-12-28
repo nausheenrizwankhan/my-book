@@ -1,0 +1,188 @@
+/* Agent Hierarchy Component Styles */
+
+.hierarchyContainer {
+  margin: 2rem 0;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.hierarchyTree {
+  padding: 1rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--color-panel-border);
+}
+
+.agentNode {
+  margin: 0.5rem 0;
+}
+
+.agentInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.agentInfo:hover {
+  background: var(--color-surface-secondary);
+}
+
+.connector {
+  color: var(--color-accent-cyan);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  min-width: 1.5rem;
+}
+
+.expandButton {
+  background: transparent;
+  border: none;
+  color: var(--color-accent-cyan);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  min-width: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.expandButton:hover {
+  transform: scale(1.2);
+}
+
+.agentId {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+  color: var(--color-accent-cyan);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 150px;
+}
+
+.agentName {
+  font-family: var(--ifm-font-family-base);
+  color: var(--ifm-color-content);
+  font-size: 0.875rem;
+  flex: 1;
+}
+
+.statusBadge {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid;
+  font-weight: 600;
+}
+
+.statusACTIVE {
+  background: var(--color-status-active);
+  border-color: var(--color-accent-red-light);
+  color: #ffffff;
+}
+
+.statusIDLE {
+  background: transparent;
+  border-color: var(--color-status-idle);
+  color: var(--color-status-idle);
+}
+
+.statusTRAINING {
+  background: transparent;
+  border-color: var(--color-status-training);
+  color: var(--color-status-training);
+}
+
+.children {
+  position: relative;
+}
+
+.children::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-panel-border);
+}
+
+.skillNode {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  margin-left: 2rem;
+  transition: background 0.2s ease;
+}
+
+.skillNode:hover {
+  background: var(--color-surface-secondary);
+}
+
+.skillIcon {
+  color: var(--color-accent-orange);
+  font-size: 0.875rem;
+}
+
+.skillName {
+  font-family: var(--ifm-font-family-monospace);
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+
+.skillStatus {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid;
+}
+
+.statusREADY {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+.statusEXECUTING {
+  border-color: var(--color-accent-orange);
+  color: var(--color-accent-orange);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.statusLEARNING {
+  border-color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+  background: rgba(0, 229, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agentId {
+    min-width: 100px;
+    font-size: 0.75rem;
+  }
+
+  .agentName {
+    font-size: 0.8125rem;
+  }
+
+  .statusBadge {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.5rem;
+  }
+
+  .skillNode {
+    margin-left: 1rem;
+  }
+
+  .children {
+    margin-left: 0.5rem !important;
+  }
+}

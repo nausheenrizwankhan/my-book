@@ -1,0 +1,140 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 229, 255, 0.05)" stroke-width="1"/>
+    </pattern>
+    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0, 229, 255, 0.02)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="400" fill="#0a0e12"/>
+  <rect width="1200" height="400" fill="url(#smallGrid)"/>
+  <rect width="1200" height="400" fill="url(#grid)"/>
+
+  <!-- Wireframe Humanoid Robot (Left) -->
+  <g transform="translate(100, 100)">
+    <!-- Head -->
+    <rect x="30" y="0" width="40" height="40" stroke="#00e5ff" stroke-width="2" fill="none"/>
+    <circle cx="45" cy="15" r="3" fill="#d32f2f"/>
+    <circle cx="55" cy="15" r="3" fill="#d32f2f"/>
+
+    <!-- Body -->
+    <rect x="25" y="45" width="50" height="70" stroke="#00e5ff" stroke-width="2" fill="none"/>
+
+    <!-- Arms -->
+    <line x1="25" y1="55" x2="5" y2="80" stroke="#00e5ff" stroke-width="2"/>
+    <line x1="5" y1="80" x2="0" y2="110" stroke="#00e5ff" stroke-width="2"/>
+
+    <line x1="75" y1="55" x2="95" y2="80" stroke="#00e5ff" stroke-width="2"/>
+    <line x1="95" y1="80" x2="100" y2="110" stroke="#00e5ff" stroke-width="2"/>
+
+    <!-- Legs -->
+    <line x1="40" y1="115" x2="35" y2="160" stroke="#00e5ff" stroke-width="2"/>
+    <line x1="35" y1="160" x2="30" y2="200" stroke="#00e5ff" stroke-width="2"/>
+
+    <line x1="60" y1="115" x2="65" y2="160" stroke="#00e5ff" stroke-width="2"/>
+    <line x1="65" y1="160" x2="70" y2="200" stroke="#00e5ff" stroke-width="2"/>
+
+    <!-- Joints -->
+    <circle cx="5" cy="80" r="4" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+    <circle cx="95" cy="80" r="4" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+    <circle cx="35" cy="160" r="4" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+    <circle cx="65" cy="160" r="4" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+  </g>
+
+  <!-- Circuit Board Pattern (Center) -->
+  <g transform="translate(400, 50)">
+    <!-- VLA Module -->
+    <rect x="0" y="50" width="120" height="80" stroke="#00e5ff" stroke-width="2" fill="rgba(0, 229, 255, 0.03)"/>
+    <text x="60" y="85" fill="#00e5ff" font-family="monospace" font-size="12" text-anchor="middle">VLA</text>
+    <text x="60" y="100" fill="#9aa0a6" font-family="monospace" font-size="10" text-anchor="middle">VISION-LANG</text>
+
+    <!-- ROS 2 Module -->
+    <rect x="140" y="50" width="120" height="80" stroke="#00e5ff" stroke-width="2" fill="rgba(0, 229, 255, 0.03)"/>
+    <text x="200" y="85" fill="#00e5ff" font-family="monospace" font-size="12" text-anchor="middle">ROS 2</text>
+    <text x="200" y="100" fill="#9aa0a6" font-family="monospace" font-size="10" text-anchor="middle">MIDDLEWARE</text>
+
+    <!-- Isaac Sim Module -->
+    <rect x="70" y="150" width="120" height="80" stroke="#00e5ff" stroke-width="2" fill="rgba(0, 229, 255, 0.03)"/>
+    <text x="130" y="185" fill="#00e5ff" font-family="monospace" font-size="12" text-anchor="middle">ISAAC</text>
+    <text x="130" y="200" fill="#9aa0a6" font-family="monospace" font-size="10" text-anchor="middle">SIMULATION</text>
+
+    <!-- Connection Lines -->
+    <line x1="60" y1="130" x2="130" y2="150" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <line x1="200" y1="130" x2="130" y2="150" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+    <!-- Data Flow Arrows -->
+    <path d="M 130 235 L 130 260" stroke="#d32f2f" stroke-width="2" marker-end="url(#arrowred)"/>
+
+    <!-- Corner Nodes -->
+    <circle cx="60" cy="50" r="5" fill="#d32f2f" stroke="#d32f2f" stroke-width="1"/>
+    <circle cx="200" cy="50" r="5" fill="#d32f2f" stroke="#d32f2f" stroke-width="1"/>
+    <circle cx="130" cy="230" r="5" fill="#d32f2f" stroke="#d32f2f" stroke-width="1"/>
+  </g>
+
+  <!-- Wireframe Robot Arm (Right) -->
+  <g transform="translate(850, 80)">
+    <!-- Base -->
+    <rect x="0" y="200" width="60" height="20" stroke="#00e5ff" stroke-width="2" fill="rgba(0, 229, 255, 0.05)"/>
+
+    <!-- Arm Segment 1 -->
+    <line x1="30" y1="200" x2="30" y2="140" stroke="#00e5ff" stroke-width="3"/>
+    <circle cx="30" cy="140" r="6" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+
+    <!-- Arm Segment 2 -->
+    <line x1="30" y1="140" x2="80" y2="100" stroke="#00e5ff" stroke-width="3"/>
+    <circle cx="80" cy="100" r="6" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+
+    <!-- Arm Segment 3 -->
+    <line x1="80" y1="100" x2="120" y2="80" stroke="#00e5ff" stroke-width="3"/>
+    <circle cx="120" cy="80" r="6" fill="#0a0e12" stroke="#00e5ff" stroke-width="2"/>
+
+    <!-- End Effector / Gripper -->
+    <rect x="115" y="65" width="15" height="8" stroke="#d32f2f" stroke-width="2" fill="none"/>
+    <line x1="118" y1="73" x2="118" y2="85" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="127" y1="73" x2="127" y2="85" stroke="#d32f2f" stroke-width="2"/>
+
+    <!-- Angle Indicators -->
+    <path d="M 30 180 A 20 20 0 0 1 40 165" stroke="#00e5ff" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+    <path d="M 50 125 A 20 20 0 0 1 65 115" stroke="#00e5ff" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Technical Data Labels -->
+  <g transform="translate(50, 330)">
+    <text fill="#5f6368" font-family="monospace" font-size="10">SYSTEM STATUS: OPERATIONAL</text>
+  </g>
+
+  <g transform="translate(400, 330)">
+    <text fill="#5f6368" font-family="monospace" font-size="10">MODULES: ROS2 | GAZEBO | ISAAC | VLA</text>
+  </g>
+
+  <g transform="translate(900, 330)">
+    <text fill="#00e5ff" font-family="monospace" font-size="10">CLASSIFIED</text>
+  </g>
+
+  <!-- Corner Frames -->
+  <g>
+    <!-- Top Left -->
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#d32f2f" stroke-width="2"/>
+
+    <!-- Top Right -->
+    <line x1="1140" y1="0" x2="1200" y2="0" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="1200" y1="0" x2="1200" y2="60" stroke="#d32f2f" stroke-width="2"/>
+
+    <!-- Bottom Left -->
+    <line x1="0" y1="340" x2="0" y2="400" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="0" y1="400" x2="60" y2="400" stroke="#d32f2f" stroke-width="2"/>
+
+    <!-- Bottom Right -->
+    <line x1="1200" y1="340" x2="1200" y2="400" stroke="#d32f2f" stroke-width="2"/>
+    <line x1="1140" y1="400" x2="1200" y2="400" stroke="#d32f2f" stroke-width="2"/>
+  </g>
+
+  <!-- Scanline Effect -->
+  <rect width="1200" height="2" y="200" fill="rgba(0, 229, 255, 0.1)">
+    <animate attributeName="y" from="0" to="400" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>

@@ -1,0 +1,655 @@
+/**
+ * Soviet-Era Robotics Design System
+ * Futuristic, minimal, and cold UI inspired by Russian robotics and Soviet sci-fi tech manuals
+ * Project: Reusable Intelligence - Agents, Skills & Subagents
+ */
+
+/* ============================================
+   FONT IMPORTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ============================================
+   ROOT VARIABLES - LIGHT MODE (BASE)
+   ============================================ */
+:root {
+  /* === COLOR SYSTEM === */
+  /* Base Palette */
+  --ifm-color-primary: #00e5ff;
+  --ifm-color-primary-dark: #00b8d4;
+  --ifm-color-primary-darker: #0097a7;
+  --ifm-color-primary-darkest: #006064;
+  --ifm-color-primary-light: #18ffff;
+  --ifm-color-primary-lighter: #64ffda;
+  --ifm-color-primary-lightest: #a7ffeb;
+
+  /* Background Colors */
+  --ifm-background-color: #0a0e12;
+  --ifm-background-surface-color: #141a21;
+  --color-surface-secondary: #1c242d;
+  --color-panel-bg: #141a21;
+  --color-panel-border: #2a3441;
+
+  /* Text Colors */
+  --ifm-color-content: #e8eaed;
+  --ifm-color-content-secondary: #9aa0a6;
+  --ifm-color-content-tertiary: #5f6368;
+
+  /* Accent Colors */
+  --color-accent-red: #d32f2f;
+  --color-accent-red-light: #f44336;
+  --color-accent-cyan: #00e5ff;
+  --color-accent-cyan-dark: #00b8d4;
+  --color-accent-orange: #ff6b35;
+  --color-accent-green: #4caf50;
+
+  /* Status Colors */
+  --color-status-active: #d32f2f;
+  --color-status-idle: #9aa0a6;
+  --color-status-training: #00e5ff;
+
+  /* === TYPOGRAPHY === */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', 'JetBrains Mono', 'Roboto Mono', monospace;
+  --ifm-heading-font-family: 'Roboto Condensed', system-ui, sans-serif;
+
+  /* Font Sizes */
+  --ifm-font-size-base: 16px;
+  --ifm-h1-font-size: 3rem;
+  --ifm-h2-font-size: 2.25rem;
+  --ifm-h3-font-size: 1.75rem;
+  --ifm-h4-font-size: 1.375rem;
+  --ifm-h5-font-size: 1.125rem;
+  --ifm-h6-font-size: 1rem;
+
+  /* Letter Spacing */
+  --ifm-heading-letter-spacing: 0.05em;
+  --ifm-condensed-letter-spacing: 0.1em;
+
+  /* === LAYOUT === */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+  --ifm-navbar-height: 60px;
+  --ifm-global-radius: 0;
+  --ifm-button-border-radius: 0;
+  --ifm-code-border-radius: 0;
+  --ifm-card-border-radius: 0;
+
+  /* === CODE THEME === */
+  --ifm-code-background: #1c242d;
+  --ifm-code-color: #00e5ff;
+  --ifm-pre-background: #141a21;
+  --ifm-code-font-size: 0.875rem;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 229, 255, 0.1);
+
+  /* === NAVBAR === */
+  --ifm-navbar-background-color: #0a0e12;
+  --ifm-navbar-link-color: #9aa0a6;
+  --ifm-navbar-link-hover-color: #00e5ff;
+
+  /* === FOOTER === */
+  --ifm-footer-background-color: #141a21;
+  --ifm-footer-color: #9aa0a6;
+  --ifm-footer-link-color: #9aa0a6;
+  --ifm-footer-link-hover-color: #00e5ff;
+  --ifm-footer-title-color: #5f6368;
+
+  /* === SIDEBAR === */
+  --ifm-menu-color: #9aa0a6;
+  --ifm-menu-color-active: #e8eaed;
+  --ifm-menu-color-background-active: #1c242d;
+
+  /* === SHADOWS === */
+  --ifm-global-shadow-lw: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --ifm-global-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --ifm-global-shadow-tl: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================
+   DARK MODE (PRIMARY THEME)
+   ============================================ */
+[data-theme='dark'] {
+  /* Keep same variables - this is our primary dark theme */
+  --ifm-color-primary: #00e5ff;
+  --ifm-color-primary-dark: #00b8d4;
+  --ifm-color-primary-darker: #0097a7;
+  --ifm-color-primary-darkest: #006064;
+  --ifm-color-primary-light: #18ffff;
+  --ifm-color-primary-lighter: #64ffda;
+  --ifm-color-primary-lightest: #a7ffeb;
+
+  --ifm-background-color: #0a0e12;
+  --ifm-background-surface-color: #141a21;
+  --ifm-color-content: #e8eaed;
+  --ifm-color-content-secondary: #9aa0a6;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 229, 255, 0.15);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+/* Body Styling */
+html {
+  background-color: var(--ifm-background-color);
+}
+
+body {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  font-family: var(--ifm-font-family-base);
+}
+
+/* Remove border radius on major components */
+.button,
+.navbar,
+.menu,
+.card,
+pre,
+code,
+.admonition,
+.pagination-nav__link,
+.tabs,
+.badge {
+  border-radius: 0 !important;
+}
+
+/* Ensure main content areas are visible */
+main {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+}
+
+.container {
+  max-width: 1440px;
+}
+
+p {
+  color: var(--ifm-color-content);
+}
+
+article {
+  color: var(--ifm-color-content);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: var(--ifm-heading-letter-spacing);
+  font-weight: 700;
+  color: var(--color-accent-cyan);
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: var(--ifm-heading-letter-spacing);
+  font-weight: 700;
+  color: var(--color-accent-cyan);
+  border-bottom: 1px solid var(--color-panel-border);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--ifm-h1-font-size); }
+h2 { font-size: var(--ifm-h2-font-size); }
+h3 { font-size: var(--ifm-h3-font-size); }
+h4 { font-size: var(--ifm-h4-font-size); }
+h5 { font-size: var(--ifm-h5-font-size); }
+h6 { font-size: var(--ifm-h6-font-size); }
+
+/* Code Elements */
+code {
+  background: var(--ifm-code-background);
+  border: 1px solid var(--color-panel-border);
+  color: var(--ifm-code-color);
+  font-family: var(--ifm-font-family-monospace);
+  padding: 2px 6px;
+  font-size: var(--ifm-code-font-size);
+}
+
+pre {
+  background: var(--ifm-pre-background);
+  border: 1px solid var(--color-panel-border);
+  border-left: 3px solid var(--color-accent-cyan);
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ============================================
+   BLUEPRINT GRID UTILITIES
+   ============================================ */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: relative;
+}
+
+.blueprint-grid-large {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 2px, transparent 2px),
+    linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+/* ============================================
+   TECHNICAL PANEL COMPONENT
+   ============================================ */
+.technical-panel {
+  background: linear-gradient(135deg, #1c242d 0%, #141a21 100%);
+  border: 1px solid var(--color-panel-border);
+  box-shadow: var(--ifm-global-shadow-lw);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.technical-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.technical-panel:hover::before {
+  opacity: 1;
+}
+
+.technical-panel__header {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: var(--ifm-condensed-letter-spacing);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-panel-border);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  background: var(--ifm-navbar-background-color);
+  border-bottom: 2px solid var(--color-accent-red);
+  height: var(--ifm-navbar-height);
+  box-shadow: 0 2px 12px rgba(211, 47, 47, 0.2);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ifm-condensed-letter-spacing);
+  color: var(--color-accent-cyan);
+  font-size: 1.125rem;
+}
+
+.navbar__link {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: var(--ifm-navbar-link-color);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--color-accent-cyan);
+  border-bottom: 2px solid var(--color-accent-cyan);
+  background: transparent;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar {
+  background: var(--color-panel-bg);
+  border-right: 1px solid var(--color-panel-border);
+  padding: 1.5rem 0;
+}
+
+.menu__link {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.875rem;
+  color: var(--ifm-menu-color);
+  padding: 0.5rem 1rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  background: var(--color-surface-secondary);
+  color: var(--color-accent-cyan);
+}
+
+.menu__link--active {
+  background: var(--ifm-menu-color-background-active);
+  border-left-color: var(--color-accent-cyan);
+  color: var(--ifm-menu-color-active);
+  font-weight: 600;
+}
+
+.menu__list-item-collapsible {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-tertiary);
+  margin-top: 1rem;
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+.markdown {
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+}
+
+.markdown > h1:first-child {
+  margin-top: 0;
+}
+
+.markdown a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.markdown a:hover {
+  border-bottom-color: var(--color-accent-cyan);
+}
+
+/* Tables */
+.markdown table {
+  border-collapse: collapse;
+  border: 1px solid var(--color-panel-border);
+  background: var(--color-panel-bg);
+}
+
+.markdown table thead {
+  background: var(--color-surface-secondary);
+  color: var(--color-accent-cyan);
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.markdown table th,
+.markdown table td {
+  border: 1px solid var(--color-panel-border);
+  padding: 0.75rem;
+}
+
+.markdown table tbody tr:nth-child(even) {
+  background: var(--ifm-background-color);
+}
+
+.markdown table tbody tr:nth-child(odd) {
+  background: var(--color-panel-bg);
+}
+
+/* Blockquotes */
+.markdown blockquote {
+  border-left: 3px solid var(--color-accent-red);
+  background: var(--color-surface-secondary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.button {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: var(--ifm-condensed-letter-spacing);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--color-accent-cyan);
+  background: transparent;
+  color: var(--color-accent-cyan);
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.button:hover {
+  background: var(--color-accent-cyan);
+  color: var(--ifm-background-color);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+  text-decoration: none;
+}
+
+.button--primary {
+  background: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+  color: #ffffff;
+}
+
+.button--primary:hover {
+  background: var(--color-accent-red-light);
+  border-color: var(--color-accent-red-light);
+  box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+}
+
+.button--secondary {
+  background: transparent;
+  border-color: var(--color-panel-border);
+  color: var(--ifm-color-content);
+}
+
+.button--secondary:hover {
+  background: var(--color-surface-secondary);
+  border-color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--ifm-footer-background-color);
+  border-top: 2px solid var(--color-panel-border);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer__title {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ifm-footer-title-color);
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.875rem;
+  color: var(--ifm-footer-link-color);
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-footer-link-hover-color);
+  text-decoration: none;
+}
+
+.footer__copyright {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-tertiary);
+  border-top: 1px solid var(--color-panel-border);
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+/* ============================================
+   ADMONITIONS (CALLOUTS)
+   ============================================ */
+.admonition {
+  border: 1px solid var(--color-panel-border);
+  border-left-width: 3px;
+  background: var(--color-surface-secondary);
+}
+
+.admonition-heading {
+  font-family: var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.admonition-heading h5 {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status-badge {
+  display: inline-block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid;
+  font-weight: 600;
+}
+
+.status-badge--active {
+  background: var(--color-status-active);
+  border-color: var(--color-accent-red-light);
+  color: #ffffff;
+}
+
+.status-badge--idle {
+  background: transparent;
+  border-color: var(--color-status-idle);
+  color: var(--color-status-idle);
+}
+
+.status-badge--training {
+  background: transparent;
+  border-color: var(--color-status-training);
+  color: var(--color-status-training);
+}
+
+/* ============================================
+   TECHNICAL SEPARATOR
+   ============================================ */
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent-cyan) 50%, transparent 100%);
+  position: relative;
+  margin: 2rem 0;
+}
+
+.separator::before {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  color: var(--color-accent-cyan);
+  font-size: 0.75rem;
+  background: var(--ifm-background-color);
+  padding: 0 0.5rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 996px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+
+  .navbar__title {
+    font-size: 1rem;
+  }
+
+  .technical-panel {
+    padding: 1rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Focus Styles */
+a:focus,
+button:focus,
+.menu__link:focus {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-panel-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-panel-border);
+  border: 1px solid var(--color-panel-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-cyan);
+}

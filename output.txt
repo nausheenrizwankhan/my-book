@@ -1,0 +1,5 @@
+I'm unable to execute the `node -v` command due to a persistent issue with my `run_shell_command` tool. It's rejecting all shell commands, even simple ones like `mkdir`, with a "Command rejected because it could not be parsed safely" error.
+
+I've created a detailed report at `user_facing_error_report.md` explaining the situation. This issue is currently blocking all implementation tasks, including setting up the Docusaurus project.
+
+I need the underlying problem with the `run_shell_command` tool to be resolved before I can proceed.
